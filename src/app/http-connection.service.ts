@@ -11,6 +11,13 @@ export interface User {
   Tags: string[]
 }
 
+export interface UserResponse {
+  id: number;
+  name: string;
+  age: number;
+  tags: string[]
+}
+
 export interface CustomResponse {
   message: string;
   isSuccessful: boolean;
@@ -23,10 +30,10 @@ export class HttpConnectionService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  add(payload: User): Observable<User> {
+  add(payload: User): Observable<UserResponse> {
     try {
       return this.httpClient
-        .post<User>(`${env.apiRoot}/api/DemoSandbox`, payload)
+        .post<UserResponse>(`${env.apiRoot}/api/DemoSandbox`, payload)
         .pipe(
           retry(3)
         );
@@ -49,10 +56,10 @@ export class HttpConnectionService {
     }
   }
 
-  getAll(): Observable<User[]> {
+  getAll(): Observable<UserResponse[]> {
     try {
       return this.httpClient
-        .get<User[]>(`${env.apiRoot}/api/DemoSandbox`)
+        .get<UserResponse[]>(`${env.apiRoot}/api/DemoSandbox`)
         .pipe(
           retry(3)
         );
@@ -62,10 +69,10 @@ export class HttpConnectionService {
     }
   }
 
-  getSingle(id: number): Observable<User> {
+  getSingle(id: number): Observable<UserResponse> {
     try {
       return this.httpClient
-        .get<User>(`${env.apiRoot}/api/DemoSandbox/${id}`)
+        .get<UserResponse>(`${env.apiRoot}/api/DemoSandbox/${id}`)
         .pipe(
           retry(3)
         );

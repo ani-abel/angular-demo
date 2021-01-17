@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from 'rxjs';
 import { SubSink } from 'subsink';
-import { HttpConnectionService, User } from '../http-connection.service';
+import { HttpConnectionService, UserResponse } from '../http-connection.service';
 
 @Component({
   selector: 'app-view-single',
@@ -10,7 +10,7 @@ import { HttpConnectionService, User } from '../http-connection.service';
   styleUrls: ['./view-single.component.scss']
 })
 export class ViewSingleComponent implements OnInit, OnDestroy {
-  selectedUser$: Observable<User>;
+  selectedUser$: Observable<UserResponse>;
   subSink: SubSink = new SubSink();
 
   constructor(
@@ -21,11 +21,11 @@ export class ViewSingleComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     let userId: number;
     this.subSink.sink =
-    this.activatedRouter.params.subscribe((data) => {
-      userId = data.id;
-    });
+      this.activatedRouter.params.subscribe((data) => {
+        userId = data.id;
+      });
 
-    if(userId) {
+    if (userId) {
       this.selectedUser$ = this.httpSrv.getSingle(userId);
     }
   }

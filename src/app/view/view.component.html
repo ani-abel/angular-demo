@@ -1,8 +1,10 @@
 <ul *ngIf="(allUsers$ | async) as allUsers">
   <li *ngFor="let user of allUsers">
-    <span>Id: {{ user.Id }}</span>
-    <h2>Name: {{ user.Name }}</h2>
-    <p>Age: {{ user.Age }}</p>
-    <a [routerLink]="['/view-single', user.Id]">View more</a>
+    <span>Id: {{ user.id }}</span>
+    <h2>Name: {{ user.name }}</h2>
+    <p>Age: {{ user.age }}</p>
+    <a [routerLink]="['/view-single', user.id]">View more</a>
   </li>
 </ul>
+
+<a [routerLink]="['/add']">Add User</a>

@@ -1,8 +1,11 @@
 <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
-  <input [formControlName]="'Id'" type="number" min="1" placeholder="Id">
-  <input [formControlName]="'Name'" type="text" placeholder="Name">
-  <input [formControlName]="'Age'" type="number" min="1" placeholder="Age">
-  <input type="text" [formControlName]="'Tags'" placeholder="Time, grace, hendricks">
+  <input [formControlName]="'Id'" type="number" min="1" placeholder="Id"><br />
+  <input [formControlName]="'Name'" type="text" placeholder="Name"><br />
+  <input [formControlName]="'Age'" type="number" min="1" placeholder="Age"><br />
+  <input type="text" [formControlName]="'Tags'" placeholder="Time, grace, hendricks"><br />
 
   <button type="submit" [disabled]="addUserForm.invalid">Submit</button>
 </form>
+
+<br />
+<a [routerLink]="['/view']">View All</a>

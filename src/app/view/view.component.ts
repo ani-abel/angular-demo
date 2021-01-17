@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpConnectionService, User } from '../http-connection.service';
+import { HttpConnectionService, UserResponse } from '../http-connection.service';
 
 @Component({
   selector: 'app-view',
@@ -8,7 +8,7 @@ import { HttpConnectionService, User } from '../http-connection.service';
   styleUrls: ['./view.component.scss']
 })
 export class ViewComponent implements OnInit {
-  allUsers$: Observable<User[]>;
+  allUsers$: Observable<UserResponse[]>;
 
   constructor(private readonly httpSrv: HttpConnectionService) { }
 
