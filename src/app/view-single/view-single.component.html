@@ -1,1 +1,5 @@
-<p>view-single works!</p>
+<div *ngIf="(selectedUser$ | async) as selectedUser">
+  <span>Id: {{ selectedUser.Id }}</span>
+  <h3>Name: {{ selectedUser.Name | uppercase }}</h3>
+  <p>Age: {{ selectedUser.Age }}</p>
+</div>

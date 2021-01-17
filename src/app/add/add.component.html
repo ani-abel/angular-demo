@@ -1,1 +1,8 @@
-<p>add works!</p>
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+  <input [formControlName]="'Id'" type="number" min="1" placeholder="Id">
+  <input [formControlName]="'Name'" type="text" placeholder="Name">
+  <input [formControlName]="'Age'" type="number" min="1" placeholder="Age">
+  <input type="text" [formControlName]="'Tags'" placeholder="Time, grace, hendricks">
+
+  <button type="submit" [disabled]="addUserForm.invalid">Submit</button>
+</form>

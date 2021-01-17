@@ -1,1 +1,8 @@
-<p>view works!</p>
+<ul *ngIf="(allUsers$ | async) as allUsers">
+  <li *ngFor="let user of allUsers">
+    <span>Id: {{ user.Id }}</span>
+    <h2>Name: {{ user.Name }}</h2>
+    <p>Age: {{ user.Age }}</p>
+    <a [routerLink]="['/view-single', user.Id]">View more</a>
+  </li>
+</ul>
