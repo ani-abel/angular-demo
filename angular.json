@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ng-demo-app": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-demo-app"
+    }
+  },
+  "defaultProject": "ng-demo-app",
+  "cli": {
+    "analytics": "a4b1c764-18d6-4302-8ff8-4236cd41594f"
+  }
 }
